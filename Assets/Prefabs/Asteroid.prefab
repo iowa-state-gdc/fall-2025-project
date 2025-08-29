@@ -140,3 +140,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f1d5e9cf4f8494e89e40b6db1ddbb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
+  direction: {x: 0, y: 0}
+  despawnTime: 10

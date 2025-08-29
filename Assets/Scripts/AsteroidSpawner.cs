@@ -4,6 +4,8 @@ public class AsteroidSpawner : MonoBehaviour
 {
     public GameObject prefab;
     public Transform target;
+    public float spawnRadius;
+    public float angleVariance;
 
     float timeSinceLastSpawn = 0.0f;
 
@@ -16,12 +18,14 @@ public class AsteroidSpawner : MonoBehaviour
             timeSinceLastSpawn -= 0.5f;
             GameObject spawnedAsteroid = Instantiate(prefab);
 
-            Vector3 position = new Vector3(Random.value - 0.5f, Random.value - 0.5f, 0.0f) ;
+            Vector2 position = new Vector3(Random.value - 0.5f, Random.value - 0.5f);
             position.Normalize();
-            position *= 6.0f;
+            position *= spawnRadius;
 
-            float toTarget = Vector3.Angle(Vector3.right, position);
-            toTarget += 0.0f;// 22.5f * (Random.value - 0.5f);
+            float toTarget = Mathf.Atan2(-position.y, -position.x);
+            Debug.Log(toTarget * Mathf.Rad2Deg);
+            toTarget += Mathf.Deg2Rad * (Random.value - 0.5f) * angleVariance;
+            Debug.Log("     " + toTarget * Mathf.Rad2Deg);
             Vector2 direction = new Vector2(Mathf.Cos(toTarget), Mathf.Sin(toTarget));
 
             position.x += target.position.x;
