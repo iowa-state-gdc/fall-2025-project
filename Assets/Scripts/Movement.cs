@@ -2,33 +2,27 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerInput))]
 public class Movement : MonoBehaviour
 {
-    public float speed = 0.5f;
-    
-    private Vector2 input;
+    [SerializeField] private float moveSpeed;
     private Rigidbody2D body;
-    private InputSystem_Actions controls;
+    private Vector2 currentInput;
 
-    void Awake()
-    {
-        controls = new InputSystem_Actions();
-        controls.Enable();
-    }
-
-   
-
-    void Start()
+    private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-
-        // Bind the input action
-        controls.Player.Move.performed += ctx => input = ctx.ReadValue<Vector2>();
-        controls.Player.Move.canceled += ctx => input = Vector2.zero;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        body.linearVelocity = input * speed;
+        body.linearVelocity = moveSpeed * currentInput * Time.fixedDeltaTime;
+    }
+
+    private void OnMove(InputValue value)
+    {
+        Vector2 playerInput = new Vector2(value.Get<Vector2>().x, value.Get<Vector2>().y);
+        currentInput = playerInput;
     }
 }
