@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8235808552560858010}
   - component: {fileID: 1172238215560013422}
   - component: {fileID: 1672140626188762421}
-  - component: {fileID: 8289018844990668385}
+  - component: {fileID: 1293754944980566033}
   m_Layer: 0
-  m_Name: Asteroid
-  m_TagString: Asteroid
+  m_Name: Bullet
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -128,7 +128,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &8289018844990668385
+--- !u!114 &1293754944980566033
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3935408270787908077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05f1d5e9cf4f8494e89e40b6db1ddbb6, type: 3}
+  m_Script: {fileID: 11500000, guid: 129e5edd5f69f0a4284b81adaf2f4e54, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Asteroid
-  direction: {x: 0, y: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  bulletDirection: {x: 0, y: 0}
   despawnTime: 10
