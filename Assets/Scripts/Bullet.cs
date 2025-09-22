@@ -34,5 +34,7 @@ public class Bullet : MonoBehaviour
             Destroy(other.gameObject); // destroy asteroid
             Destroy(this.gameObject);       // destroy bullet
         }
+        else
+            Debug.Log(other.gameObject);
     }
 }

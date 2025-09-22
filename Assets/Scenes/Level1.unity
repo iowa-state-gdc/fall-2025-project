@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 618273552}
   - component: {fileID: 618273553}
   - component: {fileID: 618273554}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 1798895892}
   - component: {fileID: 1798895891}
   - component: {fileID: 1798895890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

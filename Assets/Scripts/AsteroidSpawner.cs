@@ -23,9 +23,8 @@ public class AsteroidSpawner : MonoBehaviour
             position *= spawnRadius;
 
             float toTarget = Mathf.Atan2(-position.y, -position.x);
-            Debug.Log(toTarget * Mathf.Rad2Deg);
             toTarget += Mathf.Deg2Rad * (Random.value - 0.5f) * angleVariance;
-            Debug.Log("     " + toTarget * Mathf.Rad2Deg);
+            //Debug.Log("     " + toTarget * Mathf.Rad2Deg);
             Vector2 direction = new Vector2(Mathf.Cos(toTarget), Mathf.Sin(toTarget));
 
             position.x += target.position.x;
