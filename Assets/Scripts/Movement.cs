@@ -6,9 +6,12 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float maxSpeed = 10f;        
+    [SerializeField] private float acceleration = 10f;   
+    [SerializeField] private float deceleration = 1f;   
     private Rigidbody2D body;
     private Vector2 currentInput;
+    private Vector2 velocity;
 
     private void Awake()
     {
@@ -17,12 +20,15 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        body.linearVelocity = moveSpeed * currentInput * Time.fixedDeltaTime;
+        // Target velocity based on input
+        Vector2 targetVelocity = currentInput * maxSpeed;
+        float rate = (currentInput.magnitude > 0) ? acceleration : deceleration;
+        velocity = Vector2.MoveTowards(velocity, targetVelocity, rate * Time.fixedDeltaTime);
+        body.linearVelocity = velocity;
     }
 
     private void OnMove(InputValue value)
     {
-        Vector2 playerInput = new Vector2(value.Get<Vector2>().x, value.Get<Vector2>().y);
-        currentInput = playerInput;
+        currentInput = value.Get<Vector2>().normalized;
     }
 }
