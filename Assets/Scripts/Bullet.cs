@@ -31,10 +31,8 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Asteroid"))
         {
-            Destroy(other.gameObject); // destroy asteroid
-            Destroy(this.gameObject);       // destroy bullet
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
         }
-        else
-            Debug.Log(other.gameObject);
     }
 }

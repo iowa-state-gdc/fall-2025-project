@@ -27,4 +27,13 @@ public class Asteroid : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Player p = other.GetComponent<Player>();
+        if (p)
+        {
+            p.kys();
+        }
+    }
 }
