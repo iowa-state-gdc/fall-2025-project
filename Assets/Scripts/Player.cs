@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public void kys()
+    public void kill_player()
     {
         gameObject.SetActive(false);
         GameManager.getInstance().stopTime();

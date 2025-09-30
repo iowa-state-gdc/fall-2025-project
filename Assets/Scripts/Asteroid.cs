@@ -33,7 +33,7 @@ public class Asteroid : MonoBehaviour
         Player p = other.GetComponent<Player>();
         if (p)
         {
-            p.kys();
+            p.kill_player();
         }
     }
 }
